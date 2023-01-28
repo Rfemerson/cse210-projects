@@ -1,16 +1,19 @@
 using System;
 
-
-class JournalEntry
+public class Entry
 {
-    public string question;
-    public string answer;
+    public string questionProgram;
+    public string answerUser;
+    public string userName;
+    public string ageUser;
     public DateTime date;
 
-    public JournalEntry(string question, string answer)
+    public Entry(string question, string answer, string name, string age)
     {
-        this.question = question;
-        this.answer = answer;
-        this.date = DateTime.Now;
+        userName = name;
+        ageUser = age;
+        questionProgram = question ;
+        answerUser = answer;
+        date = DateTime.Now;
     }
 }
