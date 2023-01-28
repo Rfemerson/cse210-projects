@@ -42,6 +42,7 @@ public class Journal
             Console.WriteLine(lines[i + 2]);
             Console.WriteLine(lines[i + 3]);
             Console.WriteLine(lines[i + 4]);
+            Console.WriteLine();
         }
     }
 
