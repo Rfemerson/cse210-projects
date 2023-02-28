@@ -14,8 +14,10 @@ class Program
 
         int numberChoice = int.Parse(activityChoice);
 
-        if (numberChoice == 1){ // Breathing Activity
-
+        if (numberChoice == 1) { // Breathing Activity
+            BreathingActivity breathingActivity = new BreathingActivity();
+            breathingActivity.WelcomeBrathingActivity();
+            breathingActivity.StartBreathingActivity();
         }
 
         else if (numberChoice == 2) { //Reflection Activity
