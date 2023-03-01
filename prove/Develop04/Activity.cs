@@ -33,10 +33,15 @@ class Activity
         return _askDurationOfTheActivity; 
     }
 
-    // public int GetDuration(int duration) 
+    // public int GetDuration(int gduration) 
     // {
-    //     _durationActivity = duration;
-    //     return duration;
+        
+    //     string duration = Console.ReadLine();
+    //     int durationTime = int.Parse(duration);
+
+    //     DateTime startTIme = DateTime.Now;
+    //     DateTime endTime = startTIme.AddSeconds(durationTime);
+    //     return gduration;
         
     // }
 
@@ -48,6 +53,7 @@ class Activity
     
     public void PreparationAnimation()
     {
+        Console.Clear();
         Console.WriteLine("Get ready...");
 
         DateTime startTIme = DateTime.Now;

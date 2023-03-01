@@ -7,10 +7,12 @@ class BreathingActivity : Activity
 
     private void Countdown()
     {
-        for (int i = 4; i > 0; i--) {
-                Console.Write("\b \b" + i);
-                Thread.Sleep(1000); 
-            }
+        for (int i = 4; i > 0; i--) 
+        {
+            Console.Write("\b \b" + i);
+            Thread.Sleep(1000); 
+        }
+        Console.WriteLine("\b \b"); 
     }
 
     public string GetBreatheIn()
@@ -50,12 +52,10 @@ class BreathingActivity : Activity
             Console.Write(GetBreatheIn());
 
             Countdown();
-            Console.WriteLine("\b \b");
-
+            
             Console.Write(GetBreatheOut());
 
-            Countdown();
-            Console.WriteLine("\b \b");     
+            Countdown();   
 
             Console.WriteLine();     
         }

@@ -21,7 +21,9 @@ class Program
         }
 
         else if (numberChoice == 2) { //Reflection Activity
-
+            ReflectionActivity reflectionActivity = new ReflectionActivity();
+            reflectionActivity.WelcomeReflectionActivity();
+            reflectionActivity.StartReflectionActivity();
         }
 
         else if (numberChoice == 3) { // Listing Activity
