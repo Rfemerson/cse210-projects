@@ -78,5 +78,7 @@ class ReflectionActivity : Activity
             Console.Write($"{ponderQuestions[i]} ");
             Animation();
         }
+
+        FinalMessage(durationTime, "Reflection Activity");
     }
 }

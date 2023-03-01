@@ -27,15 +27,17 @@ class Program
         }
 
         else if (numberChoice == 3) { // Listing Activity
-
+            ListingActivity listingActivity = new ListingActivity();
+            listingActivity.WelcomeListingActivity();
+            listingActivity.StartListingActivity();
         }
     
         else if (numberChoice == 4) { // Quit 
-            
+            Console.WriteLine("No problem, see you later!");
         }
         
         else { // Please start again
-
+            Console.WriteLine("Please choose a number from 1 to 4");
         }
     }
 }
