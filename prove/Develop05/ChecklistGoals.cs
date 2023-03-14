@@ -1,16 +1,17 @@
 using System;
 
-public class SimpleGoals : Goals
+public class ChecklistGoals : Goals
 {
-    public SimpleGoals()
+    public ChecklistGoals()
     {
-    _goalTitles = new List<string>();
-    _goalDescs = new List<string>();
-    _goalPoints = new List<int>();
-    _goalExtraPoints = new List<int>();
-    _goalNumberOfChecks = new List<int>();
-    _goalDones = new List<bool>();
-    }   
+        _goalTypes = new List<int>();
+        _goalTitles = new List<string>();
+        _goalDescs = new List<string>();
+        _goalPoints = new List<int>();
+        _goalExtraPoints = new List<int>();
+        _goalNumberOfChecks = new List<int>();
+        _goalDones = new List<bool>();
+    }
 
     public override void EndGoal(int idGoal)
     {

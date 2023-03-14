@@ -6,12 +6,11 @@ class Program
     {
         SimpleGoals simpleGoals = new SimpleGoals();
         EternalGoals eternalGoals = new EternalGoals();
+        ChecklistGoals checklistGoals = new ChecklistGoals();
         var totalPoints = 0;
 
         while (true)
         {
-            
-
             Console.WriteLine($"You have {totalPoints} points");
             Console.WriteLine("Menu Options:");
             Console.WriteLine("  1. Create New Goal");
@@ -21,13 +20,13 @@ class Program
             Console.WriteLine("  5. Record Event");
             Console.WriteLine("  6. Quit");
             Console.WriteLine("Select a choice from the menu: ");
-            string  option = Console.ReadLine();
+            string option = Console.ReadLine();
             int menuoption = int.Parse(option);
 
-            if (menuoption == 1) 
+            if (menuoption == 1)
             {
                 Console.WriteLine("The types of Goals are:\n 1. Simple Goal\n 2. Eternal Goal\n 3. Checklist Goal");
-                
+
                 Console.Write("Which type of goal would you like to create? ");
                 string submenuOption = Console.ReadLine();
                 int optionMenu = int.Parse(submenuOption);
@@ -44,48 +43,60 @@ class Program
 
                 if (optionMenu == 1)
                 {
-                    simpleGoals.AddGoal(1, goalName, goalDescription, numberAssociatePoints);
+                    simpleGoals.AddGoal(1, goalName, goalDescription, numberAssociatePoints, 0, 0);
                 }
 
                 else if (optionMenu == 2)
                 {
-                    eternalGoals.AddGoal(2, goalName, goalDescription, numberAssociatePoints);
+                    eternalGoals.AddGoal(2, goalName, goalDescription, numberAssociatePoints, 0, 0);
                 }
 
                 else if (optionMenu == 3)
                 {
-                    Console.Write("\n Falta fazer ");
+                    Console.Write("\nHow many times does this goal need to be accomplished for a bonus? ");
+                    string checks = Console.ReadLine();
+                    int goalNumberOfChecks = int.Parse(checks);
+
+                    Console.Write("\nWhat is the bonus for accomplishing it that many times? ");
+                    string bonus = Console.ReadLine();
+                    int goalExtraPoints = int.Parse(bonus);
+
+                    checklistGoals.AddGoal(3, goalName, goalDescription, numberAssociatePoints, goalNumberOfChecks, goalExtraPoints);
                 }
-            
+
             }
 
-            else if (menuoption == 2) 
+            else if (menuoption == 2)
             {
                 simpleGoals.ListGoals();
                 eternalGoals.ListGoals();
                 //checklistGoals.ListGoals();
             }
-            
-            else if (menuoption == 3) 
+
+            else if (menuoption == 3)
             {
                 Console.WriteLine("What is filename for the goal file?");
-                string filename = Console.ReadLine();
-                simpleGoals.SaveGoalsInFile(filename);
-                eternalGoals.SaveGoalsInFile(filename);
-                
+                string fileName = Console.ReadLine();
+                using (StreamWriter outputFile = new StreamWriter(fileName))
+                {
+
+                };
+                simpleGoals.SaveGoalsInFile(fileName);
+                eternalGoals.SaveGoalsInFile(fileName);
+
             }
 
-            else if (menuoption == 4) 
+            else if (menuoption == 4)
+            {
+                simpleGoals.LoadSavedGoalsInFile("goals.txt");
+            }
+
+            else if (menuoption == 5)
             {
 
             }
 
-            else if (menuoption == 5) 
-            {
-
-            }
-
-            else if (menuoption == 6) 
+            else if (menuoption == 6)
             {
                 break;
             }
