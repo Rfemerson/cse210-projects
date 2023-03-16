@@ -23,7 +23,7 @@ public class EternalGoals : Goals
         for (int i = 0; i < _goalTitles?.Count; i++)
         {
             
-            Console.WriteLine($"{_goalTitles[i]}: {_goalDescs[i]} ({_goalPoints[i]} points)");
+            Console.WriteLine($"[ ] {_goalTitles[i]}: {_goalDescs[i]} ({_goalPoints[i]} points)");
 
         }
     }

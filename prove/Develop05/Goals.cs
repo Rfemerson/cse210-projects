@@ -53,16 +53,37 @@ public abstract class Goals
 
     }
 
-    public void LoadSavedGoalsInFile(string fileName)
+    public string LoadSavedGoalsInFile(string fileName)
     {
         string[] lines = System.IO.File.ReadAllLines(fileName);
-        foreach (string line in lines)
+        foreach(string line in lines)
         {
-            string[] parts = line.Split(",");
-            string first = parts[0];
-            Console.WriteLine(first);
+            return line;
+        }
+        return"";  
+    }
+
+    public void DisplayListOfGoalInFile(string file)
+     {
+        string[] parts;
+        string first = " ";
+        string second = " ";
+        string[] lines = System.IO.File.ReadAllLines(file);
+        for(int i = 1; i < lines.Count();i++)
+        {
+            parts = lines[i].Split(":");
+            first = parts[0];
+            second = parts[1];
+
+            string[] secondparts = second.Split(",");
+            _goalTitles[i] = secondparts[0];
+            _goalDescs[i] = secondparts[1];
+            // _goalPoints[i] = secondparts[2];
+
+            Console.WriteLine($"The goals are:\n [{" "}] {_goalTitles} ({_goalDescs}})");
         }
     }
+
     abstract public void EndGoal(int idGoal);
     
 }

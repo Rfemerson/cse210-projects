@@ -19,7 +19,7 @@ class Program
             Console.WriteLine("  4. Load Goals");
             Console.WriteLine("  5. Record Event");
             Console.WriteLine("  6. Quit");
-            Console.WriteLine("Select a choice from the menu: ");
+            Console.Write("Select a choice from the menu: ");
             string option = Console.ReadLine();
             int menuoption = int.Parse(option);
 
@@ -70,7 +70,7 @@ class Program
             {
                 simpleGoals.ListGoals();
                 eternalGoals.ListGoals();
-                //checklistGoals.ListGoals();
+                checklistGoals.ListGoals();
             }
 
             else if (menuoption == 3)
