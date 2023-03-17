@@ -1,0 +1,3 @@
+Simple Goal: Run, Run every day, 10, False
+Eternal Goal: Scripture, Read scripture , 100
+Checklist Goal: Temple, Attend the temple, 100, 500, 30, False

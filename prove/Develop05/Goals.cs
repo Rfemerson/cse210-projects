@@ -80,7 +80,7 @@ public abstract class Goals
             _goalDescs[i] = secondparts[1];
             // _goalPoints[i] = secondparts[2];
 
-            Console.WriteLine($"The goals are:\n [{" "}] {_goalTitles} ({_goalDescs}})");
+            Console.WriteLine($"The goals are:\n [{" "}] {_goalTitles} ({_goalDescs})");
         }
     }
 

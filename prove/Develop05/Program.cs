@@ -83,12 +83,13 @@ class Program
                 };
                 simpleGoals.SaveGoalsInFile(fileName);
                 eternalGoals.SaveGoalsInFile(fileName);
+                checklistGoals.SaveGoalsInFile(fileName);
 
             }
 
             else if (menuoption == 4)
             {
-                simpleGoals.LoadSavedGoalsInFile("goals.txt");
+                simpleGoals.DisplayListOfGoalInFile("test.txt");
             }
 
             else if (menuoption == 5)
