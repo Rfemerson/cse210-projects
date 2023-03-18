@@ -4,10 +4,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        
         SimpleGoals simpleGoals = new SimpleGoals();
         EternalGoals eternalGoals = new EternalGoals();
         ChecklistGoals checklistGoals = new ChecklistGoals();
+
         var totalPoints = 0;
+
+        var load ="";
 
         while (true)
         {
@@ -67,10 +71,18 @@ class Program
             }
 
             else if (menuoption == 2)
-            {
-                simpleGoals.ListGoals();
-                eternalGoals.ListGoals();
-                checklistGoals.ListGoals();
+            {                  
+                if(load != "")  
+                {
+                    simpleGoals.DisplayListOfGoalInFile(load);
+                }
+
+                else
+                {
+                    simpleGoals.ListGoals();
+                    eternalGoals.ListGoals();
+                    checklistGoals.ListGoals();
+                }            
             }
 
             else if (menuoption == 3)
@@ -89,11 +101,38 @@ class Program
 
             else if (menuoption == 4)
             {
-                simpleGoals.DisplayListOfGoalInFile("test.txt");
+                Console.Write("what is the name of your file? ");
+                load = Console.ReadLine();
+                
+                simpleGoals.LoadSavedGoalsInFile(load);
+                Console.WriteLine();
             }
 
             else if (menuoption == 5)
             {
+                List<string> goalTitle = simpleGoals.GetGoalTitle(load);
+
+                simpleGoals.RecordEvent(load);
+                Console.Write("Which goal did you accomplish? ");
+                string accomplish = Console.ReadLine();
+
+                if (accomplish == "1")
+                {
+                    Console.WriteLine($"Congratulations! You have earned {""} points!");
+                    goalTitle.Remove(goalTitle[0]);
+                }
+
+                else if (accomplish == "2")
+                {
+                    Console.WriteLine($"Congratulations! You have earned {""} points!");
+                    goalTitle.Remove(goalTitle[1]);
+                }
+
+                else if (accomplish == "3")
+                {
+                    Console.WriteLine($"Congratulations! You have earned {""} points!");
+                    goalTitle.Remove(goalTitle[2]);
+                }
 
             }
 

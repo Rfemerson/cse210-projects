@@ -63,27 +63,58 @@ public abstract class Goals
         return"";  
     }
 
-    public void DisplayListOfGoalInFile(string file)
+    public void DisplayListOfGoalInFile(string fileName)
      {
-        string[] parts;
-        string first = " ";
-        string second = " ";
-        string[] lines = System.IO.File.ReadAllLines(file);
-        for(int i = 1; i < lines.Count();i++)
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+        Console.WriteLine("The goals are: ");
+            foreach (string line in lines)
+            {
+  
+                string[] parts = line.Split(':');
+
+                string goal = parts[0].Trim();
+                string[] values = parts[1].Split(',');
+
+                string goalName = values[0];
+                string goalDesc = values[1];
+                string goalPoints = values[2];
+
+                Console.WriteLine($"[{" "}] {goalName} - {goalDesc} ({goalPoints} Points)");
+            }
+            Console.WriteLine();
+    }
+    
+    public List<string> GetGoalTitle(string fileName)
+    {
+        string[] lines = File.ReadAllLines(fileName);
+
+        List<string> goalTitle = new List<string>();
+
+        foreach (string line in lines)
         {
-            parts = lines[i].Split(":");
-            first = parts[0];
-            second = parts[1];
+            string[] parts = line.Split(':');
 
-            string[] secondparts = second.Split(",");
-            _goalTitles[i] = secondparts[0];
-            _goalDescs[i] = secondparts[1];
-            // _goalPoints[i] = secondparts[2];
+            string goal = parts[0].Trim();
+            string[] values = parts[1].Split(',');
 
-            Console.WriteLine($"The goals are:\n [{" "}] {_goalTitles} ({_goalDescs})");
+            goalTitle.Add(values[0].Trim());
         }
+        return goalTitle;
     }
 
+    public void RecordEvent(string fileName)
+    {
+        var count = 0;
+        List<string> terms =  GetGoalTitle(fileName);
+
+        foreach (string term in terms)
+        {
+            count += 1;
+            Console.WriteLine($"{count}. {term}");
+        }
+
+        Console.WriteLine();
+    }
     abstract public void EndGoal(int idGoal);
     
 }
