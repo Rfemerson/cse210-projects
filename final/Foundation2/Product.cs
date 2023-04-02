@@ -2,40 +2,40 @@ using System;
 
 class Product
 {
-    private string name;
-    private int id;
-    private decimal price;
-    private int quantity;
+    private string _name;
+    private int _id;
+    private decimal _price;
+    private int _quantity;
 
     public Product(string name, int id, decimal price, int quantity)
     {
-        this.name = name;
-        this.id = id;
-        this.price = price;
-        this.quantity = quantity;
+        _name = name;
+        _id = id;
+        _price = price;
+        _quantity = quantity;
     }
 
     public string Name
     {
-        get { return name; }
-        set { name = value; }
+        get { return _name; }
+        set { _name = value; }
     }
 
     public int ID
     {
-        get { return id; }
-        set { id = value; }
+        get { return _id; }
+        set { _id = value; }
     }
 
     public decimal Price
     {
-        get { return price * quantity; }
-        set { price = value; }
+        get { return _price * _quantity; }
+        set { _price = value; }
     }
 
     public int Quantity
     {
-        get { return quantity; }
-        set { quantity = value; }
+        get { return _quantity; }
+        set { _quantity = value; }
     }
 }
